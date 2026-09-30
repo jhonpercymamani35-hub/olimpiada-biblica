@@ -541,7 +541,7 @@ const canon = [
 
   {
     grupo: "Profetas Menores",
-    libros: "Oseas, Joel, Amós, Obadías, Jonás, Miqueas, Nahúm, Habacuc, Sofonías, Hageo, Zacarías, Malaquías",
+    libros: "Oseas, Joel, Amós, Abdías, Jonás, Miqueas, Nahúm, Habacuc, Sofonías, Hageo, Zacarías, Malaquías",
     cantidad: 12
   },
 
