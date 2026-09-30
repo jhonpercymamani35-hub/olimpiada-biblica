@@ -1,0 +1,1641 @@
+/* =========================================================
+   AVENTURA BÍBLICA
+   STYLE.CSS - DISEÑO COMPLETO
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+
+/* =========================================================
+   1. CONFIGURACIÓN GENERAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Nunito", Arial, sans-serif;
+    background:
+        linear-gradient(
+            180deg,
+            #e9fff3 0%,
+            #f8fff9 50%,
+            #fff8df 100%
+        );
+    color: #263238;
+    overflow-x: hidden;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+#app {
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   2. FONDO DECORATIVO
+   ========================================================= */
+
+body::before {
+    content: "☁️        ☁️              ☁️";
+    position: fixed;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    font-size: 35px;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: -1;
+    white-space: nowrap;
+}
+
+body::after {
+    content: "🌿     🌱      🌿       🌱       🌿";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 32px;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* =========================================================
+   3. PANTALLA DE INICIO
+   ========================================================= */
+
+.pantalla-inicio {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    background:
+        radial-gradient(
+            circle at top,
+            #ffffff 0%,
+            #e5fff1 55%,
+            #c9f5dc 100%
+        );
+}
+
+.logo-juego {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 75px;
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.15);
+    animation: flotar 3s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+.pantalla-inicio h1 {
+    font-family: "Baloo 2", cursive;
+    font-size: clamp(42px, 8vw, 78px);
+    line-height: 1;
+    color: #176b48;
+    text-shadow: 3px 3px 0 #c8f0d9;
+}
+
+.pantalla-inicio h2 {
+    font-family: "Baloo 2", cursive;
+    font-size: clamp(26px, 5vw, 42px);
+    color: #e68a18;
+    margin-top: 5px;
+}
+
+.pantalla-inicio p {
+    max-width: 600px;
+    font-size: 20px;
+    margin: 20px 0 30px;
+    color: #52615a;
+}
+
+
+/* =========================================================
+   4. BOTONES GENERALES
+   ========================================================= */
+
+.btn-principal {
+    background:
+        linear-gradient(
+            135deg,
+            #ffb52e,
+            #f28b22
+        );
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow:
+        0 7px 0 #c76d17,
+        0 12px 25px rgba(0, 0, 0, 0.15);
+    transition: 0.2s;
+}
+
+.btn-principal:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+.btn-principal:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 3px 0 #c76d17;
+}
+
+.btn-volver {
+    background: #ffffff;
+    color: #176b48;
+    border: 2px solid #bde8ce;
+    padding: 10px 17px;
+    border-radius: 30px;
+    font-weight: 800;
+    transition: 0.2s;
+}
+
+.btn-volver:hover {
+    background: #e7fff0;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   5. SELECCIÓN DEL JUGADOR
+   ========================================================= */
+
+.pantalla-jugador {
+    min-height: 100vh;
+    padding: 45px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:
+        radial-gradient(
+            circle at top,
+            #ffffff,
+            #e4fff0
+        );
+}
+
+.pantalla-jugador h1 {
+    font-family: "Baloo 2", cursive;
+    font-size: clamp(32px, 6vw, 55px);
+    color: #176b48;
+}
+
+.pantalla-jugador > p {
+    font-size: 19px;
+    margin: 10px 0 30px;
+}
+
+.avatares {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.avatar-opcion {
+    width: 170px;
+    min-height: 190px;
+    background: white;
+    border-radius: 30px;
+    border: 4px solid transparent;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #176b48;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12);
+    transition: 0.25s;
+}
+
+.avatar-opcion:hover {
+    transform: translateY(-8px);
+    border-color: #75d39a;
+}
+
+.avatar-opcion.seleccionado {
+    border-color: #f3a52a;
+    background: #fff9e8;
+    transform: translateY(-8px) scale(1.04);
+}
+
+.avatar-grande {
+    font-size: 80px;
+    line-height: 1;
+}
+
+#nombreJugador {
+    width: min(450px, 100%);
+}
+
+#inputNombre {
+    width: 100%;
+    padding: 15px 20px;
+    border: 3px solid #bce6cc;
+    border-radius: 30px;
+    font-size: 18px;
+    outline: none;
+    margin: 10px 0 20px;
+    text-align: center;
+}
+
+#inputNombre:focus {
+    border-color: #2c9a63;
+}
+
+
+/* =========================================================
+   6. ESTRUCTURA PRINCIPAL
+   ========================================================= */
+
+.juego {
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+.barra-superior {
+    width: 100%;
+    min-height: 75px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px clamp(15px, 5vw, 70px);
+    box-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.jugador-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.avatar-mini {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e5fff0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.puntos {
+    background: #fff4c9;
+    color: #9b6300;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   7. BARRA DE PROGRESO
+   ========================================================= */
+
+.progreso {
+    width: min(1100px, calc(100% - 30px));
+    margin: 25px auto 10px;
+}
+
+.progreso-texto {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 800;
+    color: #176b48;
+}
+
+.barra-progreso {
+    height: 25px;
+    background: #d9eee1;
+    border-radius: 30px;
+    position: relative;
+    overflow: visible;
+}
+
+.barra-progreso-relleno {
+    height: 100%;
+    border-radius: 30px;
+    background:
+        linear-gradient(
+            90deg,
+            #37b86c,
+            #8ddd69
+        );
+    transition: width 0.6s ease;
+}
+
+.cofre {
+    position: absolute;
+    right: -8px;
+    top: -19px;
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    background: #fff7d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================================
+   8. MAPA
+   ========================================================= */
+
+.mapa {
+    width: min(1150px, calc(100% - 30px));
+    margin: 20px auto;
+    text-align: center;
+}
+
+.mapa h1 {
+    font-family: "Baloo 2", cursive;
+    font-size: clamp(35px, 6vw, 55px);
+    color: #176b48;
+    margin-top: 15px;
+}
+
+.mapa > p {
+    color: #60756a;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.mapa-ruta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    position: relative;
+}
+
+.mapa-ruta::before {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 50%;
+    height: 8px;
+    background: #b5dfc2;
+    border-radius: 20px;
+    z-index: 0;
+}
+
+.modulo-mapa {
+    min-height: 210px;
+    background: white;
+    border-radius: 30px;
+    padding: 22px 15px;
+    position: relative;
+    z-index: 1;
+    border: 4px solid #d9f3e2;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: 0.25s;
+}
+
+.modulo-mapa:hover {
+    transform: translateY(-10px) rotate(-1deg);
+    border-color: #77ce9a;
+}
+
+.modulo-mapa.completado {
+    background:
+        linear-gradient(
+            145deg,
+            #f2fff6,
+            #ffffff
+        );
+    border-color: #f2c34e;
+}
+
+.modulo-numero {
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #176b48;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+}
+
+.modulo-emoji {
+    font-size: 65px;
+    line-height: 1;
+    margin: 5px 0 10px;
+}
+
+.modulo-mapa h3 {
+    font-family: "Baloo 2", cursive;
+    color: #176b48;
+    font-size: 21px;
+}
+
+.modulo-mapa p {
+    color: #75867d;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   9. CONTROLES
+   ========================================================= */
+
+.controles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px 15px;
+}
+
+.controles button {
+    background: white;
+    color: #176b48;
+    border: 2px solid #c9ead5;
+    border-radius: 25px;
+    padding: 10px 18px;
+    font-weight: 800;
+    transition: 0.2s;
+}
+
+.controles button:hover {
+    background: #eafff1;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   10. CONTENEDOR DE LOS JUEGOS
+   ========================================================= */
+
+.juego-contenedor {
+    width: min(1050px, calc(100% - 30px));
+    margin: 25px auto 50px;
+}
+
+.encabezado-juego {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.encabezado-juego h1 {
+    font-family: "Baloo 2", cursive;
+    color: #176b48;
+    font-size: clamp(28px, 5vw, 45px);
+}
+
+.encabezado-juego p {
+    color: #65776e;
+    font-weight: 700;
+}
+
+.puntos-ronda {
+    background: #fff4c9;
+    color: #9a6500;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.instruccion {
+    text-align: center;
+    background: #eafff1;
+    border: 2px solid #c6edd4;
+    color: #236b47;
+    padding: 13px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   11. PREGUNTAS / TRIVIA
+   ========================================================= */
+
+.pregunta-card {
+    background: white;
+    border-radius: 30px;
+    padding: clamp(25px, 5vw, 45px);
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 3px solid #e1f3e7;
+}
+
+.pregunta-numero {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.pregunta-card h2 {
+    font-family: "Baloo 2", cursive;
+    font-size: clamp(23px, 4vw, 32px);
+    color: #33483d;
+    margin-bottom: 30px;
+}
+
+.opciones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.opcion-trivia {
+    min-height: 70px;
+    background: #f3fff7;
+    border: 3px solid #c9ebd5;
+    border-radius: 20px;
+    padding: 15px;
+    color: #245b3e;
+    font-size: 17px;
+    font-weight: 800;
+    transition: 0.2s;
+}
+
+.opcion-trivia:hover:not(:disabled) {
+    background: #ddf8e8;
+    transform: translateY(-4px);
+    border-color: #62c789;
+}
+
+.opcion-trivia.correcta {
+    background: #baf2c9;
+    border-color: #2baf5b;
+    color: #12682f;
+    animation: correcto 0.5s;
+}
+
+.opcion-trivia.incorrecta {
+    background: #ffd6d6;
+    border-color: #e05a5a;
+    color: #9d2525;
+    animation: incorrecto 0.4s;
+}
+
+
+/* =========================================================
+   12. MEMORIA
+   ========================================================= */
+
+.memoria-tablero {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 850px;
+    margin: 25px auto;
+}
+
+.carta-memoria {
+    min-height: 145px;
+    border-radius: 22px;
+    background:
+        linear-gradient(
+            145deg,
+            #176b48,
+            #2b9d65
+        );
+    color: white;
+    padding: 15px;
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.13);
+    transition: 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.carta-memoria > span {
+    font-size: 45px;
+}
+
+.carta-memoria small {
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.carta-memoria:hover {
+    transform: translateY(-4px);
+}
+
+.carta-memoria.volteada {
+    background: white;
+    color: #315043;
+    border: 3px solid #75cd96;
+}
+
+.carta-memoria.encontrada {
+    background: #d6f8df;
+    border: 3px solid #31aa5d;
+}
+
+
+/* =========================================================
+   13. CANON
+   ========================================================= */
+
+.canon-libros {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.libro-canon {
+    background: white;
+    border: 3px solid #dfebdf;
+    border-radius: 17px;
+    padding: 14px 10px;
+    color: #365143;
+    font-weight: 800;
+    min-height: 55px;
+    transition: 0.2s;
+}
+
+.libro-canon:hover {
+    border-color: #69c68c;
+    transform: translateY(-3px);
+}
+
+.libro-canon.seleccionado {
+    background: #fff5c8;
+    border-color: #e9aa27;
+    transform: scale(1.03);
+}
+
+.libro-canon.correcto {
+    background: #c9f5d5;
+    border-color: #2da859;
+}
+
+.canon-grupos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.grupo-canon {
+    min-height: 90px;
+    background:
+        linear-gradient(
+            145deg,
+            #fff8db,
+            #fff
+        );
+    border: 3px solid #f0d47b;
+    border-radius: 22px;
+    color: #745600;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: 0.2s;
+}
+
+.grupo-canon:hover {
+    transform: translateY(-4px);
+    background: #fff2bb;
+}
+
+.grupo-canon strong {
+    font-family: "Baloo 2", cursive;
+    font-size: 21px;
+}
+
+.grupo-canon span {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   14. PARÁBOLAS
+   ========================================================= */
+
+.comodines {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.comodines button {
+    padding: 10px 15px;
+    border-radius: 25px;
+    background: white;
+    border: 2px solid #d7eadc;
+    color: #286445;
+    font-weight: 800;
+}
+
+.comodines button:hover:not(:disabled) {
+    background: #e8fff0;
+}
+
+.comodines button:disabled {
+    opacity: 0.4;
+}
+
+.parabola-titulo {
+    display: inline-block;
+    background: #e5f8e9;
+    color: #216740;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+.ayuda-juego {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 15px;
+    background: #fff7d8;
+    color: #755900;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   15. VERSÍCULOS
+   ========================================================= */
+
+.versiculo-card {
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf2,
+            #fff8d7
+        );
+    border: 3px solid #efd276;
+    border-radius: 30px;
+    padding: 30px;
+    text-align: center;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+
+.referencia {
+    font-family: "Baloo 2", cursive;
+    font-size: 26px;
+    color: #9a6800;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.texto-versiculo {
+    font-family: "Baloo 2", cursive;
+    font-size: clamp(21px, 4vw, 30px);
+    line-height: 1.6;
+    color: #4b4636;
+}
+
+.palabra-oculta {
+    display: inline-block;
+    min-width: 70px;
+    color: #d58b00;
+    font-weight: 900;
+    border-bottom: 4px solid #d58b00;
+    margin: 0 4px;
+}
+
+.palabra-oculta.respondida {
+    color: #198044;
+    border-color: #198044;
+}
+
+.palabras-versiculo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.boton-palabra {
+    background: white;
+    border: 3px solid #bfe2ca;
+    border-radius: 18px;
+    padding: 13px 20px;
+    color: #286143;
+    font-weight: 900;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+.boton-palabra:hover {
+    background: #e7fff0;
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   16. BOSQUE DE LAS PALABRAS
+   ========================================================= */
+
+.palabras-contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    position: relative;
+}
+
+.columna-palabras,
+.columna-definiciones {
+    background: white;
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.columna-palabras h3,
+.columna-definiciones h3 {
+    text-align: center;
+    color: #176b48;
+    font-family: "Baloo 2", cursive;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.palabra-item,
+.definicion-item {
+    width: 100%;
+    margin-bottom: 12px;
+    border-radius: 16px;
+    padding: 14px;
+    font-weight: 800;
+    transition: 0.2s;
+}
+
+.palabra-item {
+    background: #e7fff0;
+    border: 3px solid #b9e7c9;
+    color: #176b48;
+    font-size: 18px;
+}
+
+.palabra-item:hover {
+    transform: translateX(5px);
+}
+
+.palabra-item.seleccionado {
+    background: #fff2bd;
+    border-color: #e0a91f;
+}
+
+.palabra-item.correcto {
+    background: #c9f5d4;
+    border-color: #36ad60;
+}
+
+.definicion-item {
+    background: #fff9e7;
+    border: 3px solid #efda94;
+    color: #695200;
+    text-align: left;
+}
+
+.definicion-item:hover {
+    transform: translateX(-5px);
+    background: #fff2c4;
+}
+
+.definicion-item.correcto {
+    background: #c9f5d4;
+    border-color: #36ad60;
+}
+
+
+/* =========================================================
+   17. HISTORIA
+   ========================================================= */
+
+.historia-intro {
+    background:
+        linear-gradient(
+            145deg,
+            #f2e8d2,
+            #fffaf0
+        );
+    border: 3px solid #e6c98e;
+    border-radius: 30px;
+    padding: 25px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.historia-personaje {
+    font-size: 65px;
+    flex-shrink: 0;
+}
+
+.historia-intro p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #604d34;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   18. MENSAJES
+   ========================================================= */
+
+.mensaje-juego {
+    text-align: center;
+    min-height: 30px;
+    margin: 20px auto;
+    font-weight: 900;
+    color: #216840;
+}
+
+
+/* =========================================================
+   19. PANTALLA DE VICTORIA
+   ========================================================= */
+
+.pantalla-victoria {
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle,
+            #ffffff 0%,
+            #e2fff0 60%,
+            #c7f3d7 100%
+        );
+}
+
+.trofeo {
+    font-size: 110px;
+    animation:
+        trofeoEntrada 0.8s ease,
+        flotar 2.5s ease-in-out infinite 1s;
+}
+
+.pantalla-victoria h1 {
+    font-family: "Baloo 2", cursive;
+    font-size: clamp(45px, 8vw, 75px);
+    color: #176b48;
+}
+
+.pantalla-victoria h2 {
+    color: #d88a17;
+    font-family: "Baloo 2", cursive;
+    font-size: 30px;
+}
+
+.pantalla-victoria p {
+    font-size: 19px;
+    margin: 10px 0 20px;
+}
+
+.premio-puntos {
+    background: #fff3bd;
+    border: 3px solid #e4b52d;
+    color: #855900;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.insignia-nueva {
+    background: white;
+    border: 3px solid #f0c74c;
+    border-radius: 25px;
+    padding: 20px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 25px;
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.insignia-nueva::first-letter {
+    font-size: 40px;
+}
+
+
+/* =========================================================
+   20. PERFIL
+   ========================================================= */
+
+.perfil {
+    width: min(800px, calc(100% - 30px));
+    margin: 30px auto;
+    background: white;
+    border-radius: 30px;
+    padding: 30px;
+    text-align: center;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-avatar {
+    font-size: 100px;
+    margin: 20px 0;
+}
+
+.perfil h1 {
+    font-family: "Baloo 2", cursive;
+    font-size: 45px;
+    color: #176b48;
+}
+
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.estadisticas div {
+    background: #effff4;
+    border: 2px solid #ccebd6;
+    border-radius: 20px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 25px;
+}
+
+.estadisticas strong {
+    color: #176b48;
+    font-size: 28px;
+}
+
+.estadisticas span {
+    color: #728078;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   21. INSIGNIAS
+   ========================================================= */
+
+.insignias-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.insignia {
+    background: #fff9df;
+    border: 3px solid #efcf63;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #765700;
+}
+
+.insignia:first-letter {
+    font-size: 45px;
+}
+
+
+/* =========================================================
+   22. COFRE DEL TESORO
+   ========================================================= */
+
+.cofre-premio {
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(500px, calc(100% - 30px));
+    background: white;
+    border-radius: 35px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.3);
+    border: 5px solid #eab52e;
+    animation: aparecer 0.5s ease;
+}
+
+.cofre-premio > div {
+    font-size: 100px;
+    animation: flotar 2s ease-in-out infinite;
+}
+
+.cofre-premio h2 {
+    font-family: "Baloo 2", cursive;
+    color: #c47b00;
+    font-size: 30px;
+}
+
+.cofre-premio p {
+    margin: 10px 0 20px;
+    font-weight: 700;
+}
+
+.cofre-premio button {
+    background: #2a9b5e;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   23. CONFETI
+   ========================================================= */
+
+.confeti {
+    position: fixed;
+    top: -20px;
+    width: 10px;
+    height: 18px;
+    background: #f2b632;
+    z-index: 2000;
+    animation:
+        caerConfeti 2.8s linear forwards;
+    pointer-events: none;
+}
+
+.confeti:nth-child(3n) {
+    background: #36aa69;
+}
+
+.confeti:nth-child(4n) {
+    background: #ef6c58;
+}
+
+.confeti:nth-child(5n) {
+    background: #5c8fd6;
+}
+
+
+/* =========================================================
+   24. ANIMACIONES
+   ========================================================= */
+
+@keyframes flotar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+@keyframes correcto {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes incorrecto {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-7px);
+    }
+
+    75% {
+        transform: translateX(7px);
+    }
+}
+
+@keyframes trofeoEntrada {
+
+    from {
+        opacity: 0;
+        transform: scale(0.2) rotate(-20deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@keyframes caerConfeti {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   25. TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .mapa-ruta {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .mapa-ruta::before {
+        display: none;
+    }
+
+    .memoria-tablero {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .canon-libros {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .opciones {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+/* =========================================================
+   26. CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    .barra-superior {
+        padding: 10px 12px;
+    }
+
+    .jugador-info {
+        font-size: 15px;
+    }
+
+    .avatar-mini {
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+    }
+
+    .puntos {
+        font-size: 15px;
+        padding: 8px 12px;
+    }
+
+
+    .pantalla-inicio {
+        padding: 25px 15px;
+    }
+
+    .logo-juego {
+        width: 120px;
+        height: 120px;
+        font-size: 60px;
+    }
+
+
+    .avatares {
+        gap: 12px;
+    }
+
+    .avatar-opcion {
+        width: 135px;
+        min-height: 155px;
+        padding: 15px 10px;
+        border-radius: 22px;
+        font-size: 16px;
+    }
+
+    .avatar-grande {
+        font-size: 60px;
+    }
+
+
+    .mapa-ruta {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .modulo-mapa {
+        min-height: 165px;
+    }
+
+    .modulo-emoji {
+        font-size: 50px;
+    }
+
+
+    .encabezado-juego {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .encabezado-juego .btn-volver {
+        justify-self: start;
+    }
+
+    .puntos-ronda {
+        justify-self: center;
+    }
+
+
+    .pregunta-card {
+        padding: 20px 15px;
+        border-radius: 22px;
+    }
+
+    .pregunta-card h2 {
+        font-size: 22px;
+    }
+
+
+    .memoria-tablero {
+        grid-template-columns:
+            repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .carta-memoria {
+        min-height: 125px;
+        padding: 10px;
+    }
+
+    .carta-memoria > span {
+        font-size: 35px;
+    }
+
+    .carta-memoria small {
+        font-size: 11px;
+    }
+
+
+    .canon-libros {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .canon-grupos {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .palabras-contenedor {
+        grid-template-columns:
+            1fr;
+        gap: 15px;
+    }
+
+
+    .historia-intro {
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+    .versiculo-card {
+        padding: 20px 14px;
+    }
+
+    .texto-versiculo {
+        font-size: 21px;
+    }
+
+    .palabra-oculta {
+        min-width: 50px;
+    }
+
+
+    .estadisticas {
+        grid-template-columns:
+            1fr;
+    }
+
+    .insignias-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .cofre-premio {
+        padding: 25px 15px;
+    }
+
+    .cofre-premio > div {
+        font-size: 75px;
+    }
+
+
+    .controles {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controles button {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   27. CELULARES MUY PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .avatar-opcion {
+        width: 120px;
+    }
+
+    .canon-libros {
+        grid-template-columns:
+            1fr;
+    }
+
+    .memoria-tablero {
+        gap: 7px;
+    }
+
+    .carta-memoria {
+        min-height: 110px;
+    }
+
+    .btn-principal {
+        width: 100%;
+    }
+/* ✨ MARCA DE AGUA - MADE BY P&C */
+.marca-agua {
+  position: fixed;
+  bottom: 15px;
+  right: 18px;
+
+  padding: 8px 16px;
+
+  font-size: 18px;
+  font-weight: 800;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #2c805d,
+    #f2b632
+  );
+
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    0 0 10px rgba(242, 182, 50, 0.35);
+
+  opacity: 0.95;
+
+  z-index: 9999;
+
+  pointer-events: none;
+  user-select: none;
+
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.35);
+}
+@media (max-width: 700px) {
+  .marca-agua {
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
+}
